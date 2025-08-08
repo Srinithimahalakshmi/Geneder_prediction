@@ -1,0 +1,27 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gender Voice Predictor (Decision Tree)</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Gender Voice Predictor (Decision Tree)</h2>
+    <form method="post">
+        {% for feature in features %}
+            <label for="{{ feature }}">{{ feature }}</label>
+            <input type="text" id="{{ feature }}" name="{{ feature }}" value="{{ input_data[feature] }}">
+        {% endfor %}
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+        <div class="result">
+            <strong>Predicted Gender: {{ prediction }}</strong>
+        </div>
+    {% endif %}
+</div>
+</body>
+</html>
