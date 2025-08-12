@@ -1,12 +1,13 @@
 
-# 🧠 Gender Prediction System
+#  Gender Prediction System
 
-A machine learning project that predicts a person's gender based on physical and demographic features using **Random Forest Classifier** and a **Flask web interface**.
+##  Overview
+Leverage a **Random Forest Classifier** to predict gender based on physical attributes such as **height**, **weight**, and **voice pitch**. This project includes end-to-end preprocessing, model training, evaluation, and an interactive Flask web interface for real-time predictions.
 
 ---
 
-## 📑 Table of Contents
-- [⚙️ Installation](#️-installation)  
+##  Table of Contents
+- [⚙️ Installation](#-installation)  
 - [🚀 Usage](#-usage)  
 - [📁 Project Structure](#-project-structure)  
 - [📊 Results](#-results)  
@@ -15,80 +16,115 @@ A machine learning project that predicts a person's gender based on physical and
 
 ---
 
-## ⚙️ Installation
+##  Installation
+
 ```bash
 git clone https://github.com/Srinithimahalakshmi/Geneder_prediction.git
 cd Geneder_prediction
+
+python3 -m venv venv
+source venv/bin/activate   # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ````
 
 ---
 
-## 🚀 Usage
+## Usage
 
-1. **Run the Flask App**
+### 1. Run the Jupyter Notebook (Optional)
 
-   ```bash
-   python app.py
-   ```
-2. Open your browser and go to:
+Explore preprocessing, training, and evaluation in detail:
 
-   ```
-   http://127.0.0.1:5000/
-   ```
-3. Input feature values and get the gender prediction instantly.
+```bash
+jupyter notebook model_training.ipynb
+```
+
+### 2. Train & Evaluate the Model
+
+```bash
+python src/data_preprocessing.py
+python src/train_model.py
+python src/evaluate_model.py --model models/random_forest.pkl
+```
+
+### 3. Launch the Flask Web App
+
+```bash
+python app.py
+```
+
+Then visit **[http://127.0.0.1:5000](http://127.0.0.1:5000)** to input sample data and get instant predictions!
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 Geneder_prediction/
 │
-├── dataset/                   # Dataset file
-│   └── gender.csv
+├── data/                     
+│   └── gender_data.csv              # Dataset for model training
 │
-├── app.py                      # Flask web app
-├── model.pkl                   # Trained ML model
-├── templates/                  # HTML templates
-│   └── index.html
-├── static/                     # CSS and JS files
-│   └── style.css
-├── requirements.txt            # Dependencies
-└── README.md                   # Documentation
+├── notebooks/                
+│   └── model_training.ipynb        # EDA and model development notebook
+│
+├── src/
+│   ├── data_preprocessing.py       # Data cleaning & feature preparation
+│   ├── train_model.py              # Model training pipeline
+│   ├── evaluate_model.py           # Evaluation metrics and reporting
+│   └── predict.py                  # Prediction module or CLI support
+│
+├── models/
+│   └── random_forest.pkl           # Serialized trained model
+│
+├── app.py                          # Flask web application
+├── templates/
+│   └── index.html                  # Web interface template
+│
+├── static/
+│   └── style.css                   # Styling for the web app
+│
+├── requirements.txt                # Project dependencies
+└── README.md                       # This documentation
 ```
 
 ---
 
-## 📊 Results
+## Results
 
-* **Accuracy**: 95%
-* **Precision**: 94%
-* **Recall**: 95%
+* **Accuracy**: `XX%`
+* **Precision / Recall / F1-Score**: `YY% / ZZ% / AA%`
 
-The model performs well on the given dataset with high classification accuracy.
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome!
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature-name`)
-3. Commit your changes (`git commit -m "Add new feature"`)
-4. Push to your branch (`git push origin feature-name`)
-5. Open a Pull Request
+Include visuals like confusion matrices or performance charts here or in the notebook for added clarity.
 
 ---
 
-## 📬 Contact
+## Contributing
 
-📧 **Email:** [srinithiarumugam2003@gmail.com](mailto:srinithiarumugam2003@gmail.com)
-💻 **GitHub:** [Srinithimahalakshmi](https://github.com/Srinithimahalakshmi)
+I'd love your help! You could:
+
+* Add alternate models (e.g., XGBoost, SVM)
+* Improve feature engineering or preprocessing
+* Enhance visualizations and model interpretability with SHAP
+* Upgrade the UI–perhaps add CLI options or input validation
+
+**To contribute:**
+
+1. Fork the repo
+2. Create your branch (`git checkout -b feature/YourFeature`)
+3. Commit your changes (`git commit -m "Add feature XYZ"`)
+4. Push and open a Pull Request
 
 ---
 
-⭐ *If you like this project, don't forget to star the repo!* ⭐
+## Contact
 
+👤 **Maintainer**: Srinithi Mahalakshmi
+📧 **Email**: [srinithiarumugam2003@gmail.com](mailto:srinithiarumugam2003@gmail.com)
+🔗 **GitHub**: [Srinithimahalakshmi](https://github.com/Srinithimahalakshmi)
 
+---
+
+⭐ *If this project was helpful, please consider giving it a star!*
+
+```
